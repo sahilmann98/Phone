@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Phone.Models.PhoneData>
+
+@{
+    ViewBag.Title = "PhoneList";
+}
+
+<h2>PhoneList</h2>
+
+<p>
+    @Html.ActionLink("Add New Contact ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th> Edit </th>
+        <th>Delete </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                <span class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { id = item.id })</span>
+            </td>
+            <td>
+                <span class="btn btn-danger"> @Html.ActionLink("Delete", "Delete", new { id = item.id })</span>
+            </td>
+        </tr>
+    }
+
+</table>

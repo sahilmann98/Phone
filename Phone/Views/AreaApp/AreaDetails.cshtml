@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Phone.Models.tblArea>
+
+@{
+    ViewBag.Title = "AreaDetails";
+}
+
+<h2>Area Details</h2>
+
+<p>
+    @Html.ActionLink("Add New Area Code ", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaCode)
+        </th>
+        <th>Edit </th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AreaCode)
+            </td>
+            <td>
+                <span class="btn btn-warning">  @Html.ActionLink("Edit", "Edit", new { id = item.id }) </span>
+            </td>
+            <td>
+                <span class="btn btn-warning">   @Html.ActionLink("Delete", "Delete", new { id = item.id }) </span>
+            </td>
+        </tr>
+    }
+
+</table>

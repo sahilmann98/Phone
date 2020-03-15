@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Phone.Models.tblContact>
+
+@{
+    ViewBag.Title = "displayMessage";
+}
+
+<h2>display Message</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Msg)
+        </th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Msg)
+            </td>
+            <td>
+
+                <span class="btn btn-warning">@Html.ActionLink("Delete", "Delete", new { id = item.id })</span>
+
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("back to main ", "AdminDetails", "Login")
+
